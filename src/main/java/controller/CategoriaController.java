@@ -20,9 +20,14 @@ public class CategoriaController {
     
     @GetMapping("/categoria/listado")
     public String inicio(Model model){
-          
         var categorias = categoriaService.getCategorias(false); 
         model.addAttribute("categorias", categorias); 
+        return "/categoria/listado";
+    }
+    
+    @GetMapping("/categoria/listado/{idCategoria}") 
+        public String verCategoria(Categoria categoria){
+        categoria = categoriaService.getCategoria(categoria); 
         return "/categoria/listado";
     }
     
@@ -38,10 +43,10 @@ public class CategoriaController {
         return "redirect:/categoria/listado";
     }
         
-    @GetMapping("/categoria/modificar/{idCategoria}") //id Categoria tendra un valor para cada usaurio
+    @GetMapping("/categoria/modificar/{idCategoria}") 
         public String modificarCategoria(Categoria categoria, Model model){
-        categoria = categoriaService.getCategoria(categoria); // se encarga el objeto
-        model.addAttribute("categoria", categoria); // y se lo paso a modificar CLinete, esto para que aparezca la info precargada
+        categoria = categoriaService.getCategoria(categoria); 
+        model.addAttribute("categoria", categoria); 
         return "/categoria/modificar";
     }
         
