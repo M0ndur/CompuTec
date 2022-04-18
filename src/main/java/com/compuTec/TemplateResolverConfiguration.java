@@ -22,25 +22,23 @@ public class TemplateResolverConfiguration {
         plantilla.setCheckExistence(true);
         return plantilla;
     }
-    
-    /*@Bean
+    @Bean
     public SpringResourceTemplateResolver template_1(){
         SpringResourceTemplateResolver plantilla = new SpringResourceTemplateResolver();
         
-        plantilla.setPrefix("templates/producto"); //direccionar a buscar al folder templates
+        plantilla.setPrefix("templates/cliente");
         plantilla.setSuffix(".html");
         plantilla.setTemplateMode(TemplateMode.HTML);
         plantilla.setCharacterEncoding("UTF-8");
         plantilla.setOrder(1);
         plantilla.setCheckExistence(true);
         return plantilla;
-    }*/
-    
+    }
     @Bean
     public SpringResourceTemplateResolver template_2(){
         SpringResourceTemplateResolver plantilla = new SpringResourceTemplateResolver();
         
-        plantilla.setPrefix("templates/categoria"); //direccionar a buscar al folder templates
+        plantilla.setPrefix("templates/producto"); //direccionar a buscar al folder templates
         plantilla.setSuffix(".html");
         plantilla.setTemplateMode(TemplateMode.HTML);
         plantilla.setCharacterEncoding("UTF-8");
@@ -53,12 +51,14 @@ public class TemplateResolverConfiguration {
     public SpringResourceTemplateResolver template_3(){
         SpringResourceTemplateResolver plantilla = new SpringResourceTemplateResolver();
         
-        plantilla.setPrefix("templates/cliente"); //direccionar a buscar al folder templates
+        plantilla.setPrefix("templates/categoria"); //direccionar a buscar al folder templates
         plantilla.setSuffix(".html");
         plantilla.setTemplateMode(TemplateMode.HTML);
         plantilla.setCharacterEncoding("UTF-8");
-        plantilla.setOrder(3);
+        plantilla.setOrder(2);
         plantilla.setCheckExistence(true);
         return plantilla;
     }
+    
+    
 }

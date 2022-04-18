@@ -9,12 +9,12 @@ import java.io.Serializable;
 @Table(name="cliente")
 public class Cliente implements Serializable{
     
-    //Inicio MySQL
-    private static final long serialVersionUI = 1L; // para consignar las llaves primarias de la BD, el id cliente es incremental 
+    
+    private static final long serialVersionUI = 1L; 
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // para la autoincrementacion
-    private Long idCliente; //esto para mapear una tabla de mySQL, fin
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long idCliente; 
     
     private String nombre;
     private String apellidos;

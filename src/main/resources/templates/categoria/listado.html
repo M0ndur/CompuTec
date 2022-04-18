@@ -9,8 +9,10 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         
-        <!-- AQUI ASIGNAREMOS FRAGMENTOS -->
-        
+        <section th:replace="categoria/FragmentosCategoria :: botonesAgregar"/>
+        <section th:replace="categoria/FragmentosCategoria :: listadoCategoria"/>
+        <section th:replace="categoria/FragmentosCategoria :: agregarCategoria"/>
+       
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>

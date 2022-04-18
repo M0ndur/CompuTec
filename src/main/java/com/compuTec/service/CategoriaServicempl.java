@@ -16,14 +16,8 @@ public class CategoriaServicempl implements CategoriaService {
     private CategoriaDao categoriaDao;
 
     @Override
-    public List<Categoria> getCategorias(boolean activos) {
-        var lista = (List<Categoria>)categoriaDao.findAll();
-        
-        if (activos) {
-            lista.removeIf(e -> !e.isActivo()); 
-        }
-        return(List<Categoria>)categoriaDao.findAll();
-        
+    public List<Categoria> getCategorias() {
+        return(List<Categoria>)categoriaDao.findAll();       
     }
 
     @Override

@@ -1,5 +1,5 @@
 
-package controller;
+package com.compuTec.controller;
 
 
 import com.compuTec.domain.Cliente;
@@ -14,15 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @Slf4j
 public class ClienteController {
+    
     @Autowired
     private ClienteService clienteService;
     
     @GetMapping("/cliente/listado")
-    public String inicio(Model model){
-          
+    public String inicio(Model model){         
         var clientes = clienteService.getClientes(); 
         model.addAttribute("clientes", clientes);
-        
         return "/cliente/listado";
     }
     

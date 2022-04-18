@@ -18,14 +18,11 @@ public class ClienteServicempl implements ClienteService {
 
     @Override
     public List<Cliente> getClientes() {
-        return(List<Cliente>)clienteDao.findAll();
-        
+        return(List<Cliente>)clienteDao.findAll();  
     }
 
     @Override
     public void save(Cliente cliente) {
-        
-        
         clienteDao.save(cliente);
     }
 

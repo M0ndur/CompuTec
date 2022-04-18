@@ -17,14 +17,14 @@ public class Categoria implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long idCategoria; 
     private String descripcion;
-    private boolean activo;
+   
 
     public Categoria() {
     }
 
-    public Categoria(String descripcion, boolean activo) {
+    public Categoria(String descripcion) {
         this.descripcion = descripcion;
-        this.activo = activo;
+        
     }
 
     

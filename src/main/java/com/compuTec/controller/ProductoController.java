@@ -1,5 +1,5 @@
 
-package controller;
+package com.compuTec.controller;
 
 import com.compuTec.domain.Producto;
 import com.compuTec.service.ProductoService;

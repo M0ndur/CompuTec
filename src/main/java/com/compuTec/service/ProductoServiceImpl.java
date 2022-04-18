@@ -22,7 +22,7 @@ public class ProductoServiceImpl implements ProductoService{
             lista.removeIf(e -> !e.isNovedad());
         }
         return(List<Producto>)productoDao.findAll();  
-    }
+    } 
 
     @Override
     public void save(Producto producto) {

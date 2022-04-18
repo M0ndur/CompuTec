@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head th:replace="layout/plantilla :: head">
-   <!-- <head-->
+   
         <title>CompuTec</title>
         <meta charset="UTF-8">
     </head>
@@ -10,13 +12,12 @@
                 <header th:replace="layout/plantilla :: header"/>
                 <br><br>
                  <input type="search" placeholder="Search.." style="width:700px;height:37px; position: fixed; top: 60px; right: 350px;">
-              <button type="submit" style="position: fixed; top: 60px; right: 300px;" class="btn btn-outline-dark"><i class="fa-solid fa-magnifying-glass"></i></button> <br>
-
-                <h2>Nuestras Novedades:</h2>
-                
-                
-
-       <!-- <h2 th:text="#{index.titulo}">Nuestras Novedades:</h2> -->
+              <button type="submit" style="position: fixed; top: 60px; right: 300px;" class="btn btn-outline-dark"><i class="fa-solid fa-magnifying-glass"></i></button> <br>                
+              
+       <h2 th:text="#{index.titulo}">Nuestras Novedades:</h2> 
+       
+       
+       
        <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>

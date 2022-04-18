@@ -25,25 +25,26 @@
                         <ul class="nav nav-tabs px-20"> 
                             
                             <li class="nav-item px-2">
-                                <a class="nav-link active" th:href="@{/}">Inicio</a>
+                                <a class="nav-link active" th:href="@{/}" th:text="#{plantilla.inicio}">Inicio</a>
                             </li>
                             <li class="nav-item px-1">
-                                <a class="nav-link" th:href="@{/producto/listado}">Productos</a>
+                                <a class="nav-link" th:href="@{/producto/listado}" th:text="#{plantilla.productos}">Productos</a>
                             </li>
                             <li class="nav-item px-2"  sec:authorize="hasRole('ROLE_ADMIN')">
                                 <a class="nav-menu-link nav-link" th:href="@{/cliente/listado}"
                                    th:text="#{plantilla.usuarios}">Usuarios</a>
                             </li>
                             <li class="nav-item dropdown px-1">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" th:href="@{/}" id="navbarDropdown" role="button"  aria-expanded="false">Categorias</a>
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" th:href="@{/}" id="navbarDropdown" role="button"  aria-expanded="false" th:text="#{plantilla.categorias}">Categorias</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" >Cat 1</a></li>
+                     <li><a class="dropdown-item" th:href="@{/categoria/listado/1}">Cat 1</a></li>
                      <li><a class="dropdown-item" >Cat 2</a></li>
+                     <li><a class="dropdown-item" th:href="@{/categoria/listado/}">Todas</a></li>
                     </ul>
                      </li>
                             
                         <li class="nav-item dropdown px-4">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown1" href="@{/(lang)}" role="button" aria-expanded="false">Idiomas</a>
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown1" href="@{/(lang)}" role="button" aria-expanded="false" th:text="#{plantilla.idioma}">Idiomas</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">   
                                 <li><a class="dropdown-item" th:href="@{/(lang=es)}">Español</a></li>
                                 <li><a class="dropdown-item" th:href="@{/(lang=en)}">English</a></li>    
@@ -52,9 +53,17 @@
                  </ul>
                         
                       
-                   
+                   <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto">
+                       <li class="nav-item">
+                                <form method="POST" th:action="@{/logout}">
+                                    <a href="#" onclick="this.parentNode.submit();" class="nav-link">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
                         <!--
-                        <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto">
+                        
                             <li class="nav-item mr-3">
                                 <a href="#" class="nav-link">
                                     <i class="fas fa-user"></i>
@@ -62,14 +71,7 @@
                                     <span sec:authentication="name">Usuario</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <form method="POST" th:action="@{/logout}">
-                                    <a href="#" onclick="this.parentNode.submit();" class="nav-link">
-                                        <i class="fas fa-user-times"></i> [[#{plantilla.logout}]]
-                                    </a>
-                                </form>
-                            </li>
-                        </ul> -->
+                             -->
                     </div>                    
                 </div>
             </nav>
