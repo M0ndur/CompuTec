@@ -21,7 +21,7 @@
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse justify-content-md-end" id="navbarCollapse">
+                    
                         <ul class="nav nav-tabs px-20"> 
                             
                             <li class="nav-item px-2">
@@ -34,6 +34,7 @@
                                 <a class="nav-menu-link nav-link" th:href="@{/cliente/listado}"
                                    th:text="#{plantilla.usuarios}">Usuarios</a>
                             </li>
+                            
                             <li class="nav-item dropdown px-1">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" th:href="@{/}" id="navbarDropdown" role="button"  aria-expanded="false" th:text="#{plantilla.categorias}">Categorias</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -52,14 +53,29 @@
                         </li>        
                  </ul>
                         
-                      
+                    
+                    
+                    
+                    
                    <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto">
                        <li class="nav-item">
-                                <form method="POST" th:action="@{/logout}">
+                                    <a class="nav-link active" th:href="@{/usuario/miperfil}" ><i class="fa-light fa-circle-user"></i></a>
+                            </li>
+                        </ul>}
+                        
+                       
+                    
+                    
+                    
+                    
+                        
+                          <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto">
+                       <li class="nav-item">
+                              
                                     <a href="#" onclick="this.parentNode.submit();" class="nav-link">
                                         <i class="fa-solid fa-right-from-bracket"></i>
                                     </a>
-                                </form>
+                           
                             </li>
                         </ul>
                         <!--
@@ -72,7 +88,7 @@
                                 </a>
                             </li>
                              -->
-                    </div>                    
+                                        
                 </div>
             </nav>
             
