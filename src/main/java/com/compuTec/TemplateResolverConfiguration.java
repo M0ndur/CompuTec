@@ -60,5 +60,17 @@ public class TemplateResolverConfiguration {
         return plantilla;
     }
     
+     @Bean
+    public SpringResourceTemplateResolver template_4(){
+        SpringResourceTemplateResolver plantilla = new SpringResourceTemplateResolver();
+        
+        plantilla.setPrefix("templates/usuario"); //direccionar a buscar al folder templates
+        plantilla.setSuffix(".html");
+        plantilla.setTemplateMode(TemplateMode.HTML);
+        plantilla.setCharacterEncoding("UTF-8");
+        plantilla.setOrder(3);
+        plantilla.setCheckExistence(true);
+        return plantilla;
+    }
     
 }
