@@ -50,17 +50,25 @@
                                 <li><a class="dropdown-item" th:href="@{/(lang=es)}">Español</a></li>
                                 <li><a class="dropdown-item" th:href="@{/(lang=en)}">English</a></li>    
                                 </ul>
-                        </li>        
+                        </li>    
+                            <li class="nav-item px-2">
+                                <a class="nav-menu-link nav-link" th:href="@{/usuario/miperfil}"
+                                   th:text="#{login.username}">Perfil</a>
+                            </li>
                  </ul>
                         
-                 
+               
+                    
                           <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto">
                        <li class="nav-item">
-                              
+                             <form method="POST"  th:action="@{/logout}">
                                     <a href="#" onclick="this.parentNode.submit();" class="nav-link">
                                         <i class="fa-solid fa-right-from-bracket"></i>
                                     </a>
-                           
+                   <form/>
+ 
+
+
                             </li>
                         </ul>
                         <!--
