@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+     <head th:replace="layout/plantilla :: head">
+        <title>CompuTec</title>  
+    </head>
+    <body>
+        
+       <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">   
+                        <button 
+                            type="button" 
+                            class="btn btn-primary btn-block" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#agregarUsuario">
+                            <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section> 
+        <section th:fragment="agregarUsuario">
+            <div id="agregarUsuario" 
+                 class="modal fade" tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title" th:text="#{accion.agregar}">Agregar Usuario</h5>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/usuario/guardar}" th:object="${usuario}"
+                              method="POST" class="was-validated">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="descripcion" th:text="#{usuario.descripcion}">Descripcion: </label>
+                                    <input type="text" class="form-control" name="descripcion" required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="detalle" th:text="#{usuario.detalle}">Detalle: </label>
+                                    <input type="text" class="form-control" name="detalle" required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="precio" th:text="#{usuario.precio}">Precio: </label>
+                                    <input type="double" class="form-control" name="precio" required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cant_disponible" th:text="#{usuario.cant_disponible}">Cantidad disponible: </label>
+                                    <input type="number" class="form-control" name="cant_disponible" required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="novedad" th:text="#{usuario.novedad}">Novedad: </label>
+                                    <input type="checkbox" class="form-control" name="novedad" required="true"/>
+                                </div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit" th:text="#{accion.guardar}">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section th:fragment="listadoUsuario" id="usuarios">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{usuario.titulo}]]</h4>
+                            </div>
+                            <div th:if="${usuarios != null and !usuarios.empty}">
+                                <table class="table table-stryped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th th:text="#{usuario.descripcion}">Descripcion</th>
+                                            <th th:text="#{usuario.detalle}">Detalle</th>
+                                            <th th:text="#{usuario.precio}">Precio</th>
+                                            <th th:text="#{usuario.cant_disponible}">Cant. Disponible</th>
+                                            <th th:text="#{usuario.novedad}">Novedad </th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="usuario, contador : ${usuarios}">
+                                            <td>[[${contador.count}]]</td>
+                                            <td>[[${usuario.descripcion}]]</td>
+                                            <td>[[${usuario.detalle}]]</td>
+                                            <td>[[${usuario.precio}]]</td><!-- comment -->
+                                            <td>[[${usuario.cant_disponible}]]</td>
+                                            <td>[[${usuario.novedad}]]</td>
+                                            <td>
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
+                                                   class="btn btn-danger">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/modificar/}+${usuario.idUsuario}"
+                                                   class="btn btn-dark">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.actualizar}]]
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center p-2" th:if="${usuarios == null or usuarios.empty}">
+                                <span th:text="#{usuario.no_mostrar}">Lista vacía</span>
+                            </div>
+                        </div>
+                    </div>
+                       
+                </div>
+            </div>
+        </section>
+            
+        <!-- MODIFICA Usuario -->
+        <section th:fragment="botonesEditar">
+            <div id="actions" class="py-4 mb-4 bg-light">
+                <div class="container">
+                    <div class="row justify-content-md-end">
+                        <div class="col-md-3">
+                            <a th:href="@{/usuario/listado}" class="btn btn-ligth btn-block">
+                                <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-success btn-block">
+                                <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                            </button>
+                        </div>
+                       <div class="col-md-3">
+                           <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
+                               class="btn btn-danger btn-block">
+                                <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+         <section th:fragment="editarUsuario">            
+            <form method="POST"
+                  th:action="@{/usuario/guardar}"
+                  th:object="${usuario}"
+                  class="was-validated">
+                <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
+                <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
+                <br><br> 
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>[[#{accion.actualizar}]]</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="descripcion" th:text="#{usuario.descripcion}">Descripcion: </label>
+                                            <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="detalle" th:text="#{usuario.detalle}">Detalle: </label>
+                                            <input type="text"  class="form-control" name="detalle" th:field="*{detalle}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="precio" th:text="#{usuario.precio}">Precio: </label>
+                                            <input type="double"  class="form-control" name="precio" th:field="*{precio}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cant_disponible" th:text="#{usuario.cant_disponible}">Cantidad disponible: </label>
+                                            <input type="number"  class="form-control" name="cant_disponible" th:field="*{cant_disponible}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="novedad" th:text="#{usuario.novedad}">Novedad: </label>
+                                            <input type="checkbox"  class="form-control" name="novedad" th:field="*{novedad}"/>
+                                        </div>
+                                                          
+                                    </div>
+                                    <div th:replace="usuario/FragmentosUsuario :: botonesEditar"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </body>
+</html>

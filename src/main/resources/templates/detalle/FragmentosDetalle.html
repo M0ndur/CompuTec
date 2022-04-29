@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+     <head th:replace="layout/plantilla :: head">
+        <title>CompuTec</title>  
+    </head>
+    <body>
+        
+       <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">   
+                        <button 
+                            type="button" 
+                            class="btn btn-primary btn-block" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#agregarDetalle">
+                            <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section> 
+        <section th:fragment="agregarDetalle">
+            <div id="agregarDetalle" 
+                 class="modal fade" tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title" th:text="#{accion.agregar}">Agregar Detalle</h5>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/detalle/guardar}" th:object="${detalle}"
+                              method="POST" class="was-validated">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="correo" th:text="#{detalle.correo}">Correo</label>
+                                    <input type="text" class="form-control" name="correo" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono" th:text="#{detalle.telefono}">Telefono</label>
+                                    <input type="text" class="form-control" name="telefono" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="direccion" th:text="#{detalle.direccion}">Direccion</label>
+                                    <input type="text" class="form-control" name="direccion" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="NombreTarjeta" th:text="#{detalle.NombreTarjeta}">Nombre de la Tarjeta</label>
+                                    <input type="text" class="form-control" name="NombreTarjeta" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="idCliente" th:text="#{detalle.idCliente}">id del Cliente</label>
+                                    <input type="number" class="form-control" name="idCliente" required="true">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit" th:text="#{accion.guardar}">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section th:fragment="listadoDetalle" id="detalles">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Detalle de clientes</h4>
+                            </div>
+                            <div th:if="${detalles != null and !detalles.empty}">
+                                <table class="table table-stryped table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                           
+                                            <th th:text="#{detalle.correo}">correo</th>
+                                            <th th:text="#{detalle.telefono}">telefono</th>
+                                            <th th:text="#{detalle.direccion}"> direccion</th>
+                                            <th th:text="#{detalle.NombreTarjeta}">NombreTarjeta</th>
+                                            <th th:text="#{detalle.idCliente}">idCliente</th>
+                                            
+                                            
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="detalle : ${detalles}">
+                                        
+                                            <td>[[${detalle.correo} +'     ']]</td>
+                                            <td>[[${detalle.telefono}+'     ']]</td>
+                                            <td>[[${detalle.direccion}+'     ']]</td>
+                                            <td>[[${detalle.NombreTarjeta}+'     ']]</td>
+                                            <td>[[ ${detalle.idCliente}+'     ']]</td>
+                                            
+                                           
+                                            <td>
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/detalle/eliminar/}+${detalle.idClienteDetalle}"
+                                                   class="btn btn-outline-secondary">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/detalle/modificar/}+${detalle.idClienteDetalle}"
+                                                   class="btn btn-outline-primary">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.actualizar}]]
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center p-2" th:if="${detalles == null or detalles.empty}">
+                                <span>Lista vacía</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- acá va el recorte #10 después -->
+                </div>
+            </div>
+        </section>
+            
+        <!-- MODIFICA CLIENTE -->
+        <section th:fragment="botonesEditar">
+            <div id="actions" class="py-4 mb-4 bg-light">
+                <div class="container">
+                    <div class="row justify-content-md-end">
+                        <div class="col-md-3">
+                            <a th:href="@{/detalle/listado}" class="btn btn-ligth btn-block">
+                                <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-success btn-block">
+                                <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                            </button>
+                        </div>
+                       <div class="col-md-3">
+                           <a th:href="@{/detalle/eliminar/}+${detalle.idClienteDetalle}"
+                               class="btn btn-danger btn-block">
+                                <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </section>
+         <section th:fragment="editarDetalle">            
+            <form method="POST"
+                  th:action="@{/detalle/guardar}"
+                  th:object="${detalle}"
+                  class="was-validated">
+                <input type="hidden" name="idDetalle" th:field="*{idClienteDetalle}"/>
+                <section th:replace="detalle/fragmentosDetalle :: botonesEditar"/> 
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>[[#{accion.actualizar}]]</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="correo">correo </label>
+                                            <input type="text" class="form-control"  name="correo" th:field="*{correo}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telefono">telefono </label>
+                                            <input type="text"  class="form-control" name="telefono" th:field="*{telefono}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="direccion">direccion </label>
+                                            <input type="text" class="form-control" name="direccion" th:field="*{direccion}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NombreTarjeta">NombreTarjeta </label>
+                                            <input type="text" class="form-control" name="NombreTarjeta" th:field="*{NombreTarjeta}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="idCliente">id del cliente </label>
+                                            <input type="number" class="form-control" name="idCliente" th:field="*{idCliente}"/>
+                                        </div>
+                                                  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </body>
+</html>

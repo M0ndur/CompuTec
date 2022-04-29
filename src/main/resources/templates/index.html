@@ -14,22 +14,22 @@
                  
     
               
-             <br>     <h2>Nuestras Novedades:</h2>  <br> 
+             <br>  <h2>Nuestras Novedades:</h2>  <br> 
           
-             
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                  
+            <div id="carouselExampleCaptions"ratio-1x1 style="width: 40rem; align-content:center;" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
                 
-  <div class="carousel-inner">
+  <div class="carousel-inner" >
     <div class="carousel-item active">
-      <img src="imagenes/SKILL TRIDENT Z5 RGB 16 GB DDR5 6000.jp" class="d-block w-100" alt="">
+      <img src="imagenes/SKILL TRIDENT Z5 RGB 16 GB DDR5 6000.jpg" class="d-block w-100" alt="">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
-        <p>Lo último en velocidad</p>
+        <p>Lo último en velocidad</p>4
       </div>
     </div>
 
@@ -58,8 +58,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Siguiente</span>
   </button>
-</div>
-             
+</div>    
           
             
              <br>
@@ -73,44 +72,135 @@
                 <header>
                     <h3>Monitor</h3>
                 </header> 
-                 <br> 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="imagenes/ASUS VP228HE.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">ASUS VP228HE</h5>
-        <p class="card-text">Monitor de 22 pulgadas, 1920x1080 de 60 Hz</p>
-        <!-- Button trigger modal -->
-        
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
+                 <br>
+                 
+                 <div class="row" >
+                                <div class="col-sm-6"  ratio-1x1 style="width: 18rem;" />
+                                    <img src="imagenes/ASUS VP228HE.jpg" class="card-img-top" alt=""/>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">ASUS VP228HE</h5>
+                                            <p class="card-text">Monitor de 22 pulgadas, 1920x1080 de 60 Hz</p>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                ₡ 112,000
+                                            </button>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-₡ 112,000
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">[[#{listproduct.producto}]]</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            [[#{listproduct.mensaje}]]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">[[#{boton.continuar}]]</button>
 
-      </div>
-    </div>
-  </div>
-  
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                     
+                     <div class="col-sm-6"  ratio-1x1 style="width: 18rem;">
+                                    <img src="imagenes/ASUS VP228HE.jpg" class="card-img-top" alt="Imagen del medicamento enantyum"/>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Enantyum</h5>
+                                            <p class="card-text">[[#{producto.enantyum}]]</p>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                [[#{listproduct.carrito}]]
+                                            </button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">[[#{listproduct.producto}]]</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            [[#{listproduct.mensaje}]]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">[[#{boton.continuar}]]</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                     
+                     <div class="col-sm-6"  ratio-1x1 style="width: 18rem;">
+                                    <img src="imagenes/ASUS VP228HE.jpg" class="card-img-top" alt="Imagen del medicamento enantyum"/>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Enantyum</h5>
+                                            <p class="card-text">[[#{producto.enantyum}]]</p>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                [[#{listproduct.carrito}]]
+                                            </button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">[[#{listproduct.producto}]]</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            [[#{listproduct.mensaje}]]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">[[#{boton.continuar}]]</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                     
+                     <div class="col-sm-6"  ratio-1x1 style="width: 18rem;">
+                                    <img src="imagenes/ASUS VP228HE.jpg" class="card-img-top" alt="Imagen del medicamento enantyum"/>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Enantyum</h5>
+                                            <p class="card-text">[[#{producto.enantyum}]]</p>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                [[#{listproduct.carrito}]]
+                                            </button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">[[#{listproduct.producto}]]</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            [[#{listproduct.mensaje}]]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">[[#{boton.continuar}]]</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+</div>
+                 
+
   <div class="col">
     <div class="card h-100">
       <img src="imagenes/XIAOMI 1C.jpg" class="card-img-top" alt="...">
@@ -329,3 +419,35 @@
     </body>
 </html>
 
+<div class="row" >
+                                <div class="col-sm-6"  ratio-1x1 style="width: 18rem;">
+                                    <img src="imagenes/ASUS VP228HE.jpg" class="card-img-top" alt="Imagen del medicamento enantyum"/>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Enantyum</h5>
+                                            <p class="card-text">[[#{producto.enantyum}]]</p>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                [[#{listproduct.carrito}]]
+                                            </button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">[[#{listproduct.producto}]]</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            [[#{listproduct.mensaje}]]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">[[#{boton.continuar}]]</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+</div>
