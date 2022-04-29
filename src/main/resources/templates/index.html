@@ -14,7 +14,7 @@
                  
     
               
-             <br>  <h2>Nuestras Novedades:</h2>  <br> 
+             <br>  <h2>[[#{producto.novedad}]]</h2>  <br> 
           
                   
             <div id="carouselExampleCaptions"ratio-1x1 style="width: 40rem; align-content:center;" class="carousel slide" data-bs-ride="carousel">
@@ -64,13 +64,13 @@
              <br>
              
              
-             <a href="#contacto">Necesitas ayuda?</a>
+             <a href="#contacto">[[#{index.ayuda}]]</a>
               <br>
-<h2>Articulos principales</h2> 
+<h2>[[#{index.principales}]]</h2> 
 <br>
  <article>
                 <header>
-                    <h3>Monitor</h3>
+                    <h3>[[#{index.monitores}]]</h3>
                 </header> 
                  <br>
                  
@@ -111,7 +111,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Enantyum</h5>
-                                            <p class="card-text">[[#{producto.enantyum}]]</p>
+                                            <p class="card-text">[[#{producto.enantyum1}]]</p>
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 [[#{listproduct.carrito}]]
@@ -142,7 +142,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Enantyum</h5>
-                                            <p class="card-text">[[#{producto.enantyum}]]</p>
+                                            <p class="card-text">[[#{producto.enantyum2}]]</p>
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 [[#{listproduct.carrito}]]
@@ -173,7 +173,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Enantyum</h5>
-                                            <p class="card-text">[[#{producto.enantyum}]]</p>
+                                            <p class="card-text">[[#{producto.enantyum3}]]</p>
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 [[#{listproduct.carrito}]]
@@ -414,40 +414,8 @@
                    
 <br>
 
-       <!-- <h2 th:text="#{index.titulo}">Nuestras Novedades:</h2> -->
+       
        <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>
 
-<div class="row" >
-                                <div class="col-sm-6"  ratio-1x1 style="width: 18rem;">
-                                    <img src="imagenes/ASUS VP228HE.jpg" class="card-img-top" alt="Imagen del medicamento enantyum"/>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Enantyum</h5>
-                                            <p class="card-text">[[#{producto.enantyum}]]</p>
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                [[#{listproduct.carrito}]]
-                                            </button>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">[[#{listproduct.producto}]]</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            [[#{listproduct.mensaje}]]
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">[[#{boton.continuar}]]</button>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-</div>

@@ -18,15 +18,23 @@ public class Cliente implements Serializable{
     
     private String nombre;
     private String apellidos;
-    
+    private String contrasena;
+    private String correo;
+    private String telefono;
     
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellidos) {
+    public Cliente(String nombre, String apellidos, String contrasena, String correo, String telefono) {
+     
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.contrasena = contrasena;
+        this.correo = correo;
+        this.telefono = telefono;
     }
+
+    
 
     
 }
