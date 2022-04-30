@@ -26,9 +26,10 @@ public class CategoriaController {
     }
     
     @GetMapping("/categoria/listado/{idCategoria}") 
-        public String verCategoria(Categoria categoria){
+        public String verCategoria(Categoria categoria, Model model){
         categoria = categoriaService.getCategoria(categoria); 
-        return "/categoria/listado";
+        model.addAttribute("categoria", categoria); 
+        return "/";
     }
     
     @GetMapping("/categoria/nuevo")

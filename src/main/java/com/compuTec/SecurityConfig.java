@@ -21,6 +21,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 
                 .withUser("user")
                     .password("{noop}123")
+                    .roles("USER")
+        .and()
+                .withUser("pedro")
+                    .password("{noop}123")
                     .roles("USER");
     }
     
@@ -41,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                              "/cliente/listado")
                     .hasAnyRole("ADMIN","VENDEDOR")
                 .antMatchers("/producto/listado", "/categoria/listado",
-                             "/cliente/listado")
+                             "/cliente/listado", "/perfil")
                     .hasAnyRole("USER","VENDEDOR","ADMIN")
                 .and()
                     .formLogin()

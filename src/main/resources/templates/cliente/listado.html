@@ -9,13 +9,12 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <section th:replace="cliente/FragmentosCliente :: botonesAgregar"/>
+        
         <section th:replace="cliente/FragmentosCliente :: listadoCliente"/>
-        <section th:replace="cliente/FragmentosCliente :: agregarCliente"/>
+        <section th:replace="cliente/FragmentosCliente :: agregarCliente"/> 
+        <section th:replace="cliente/FragmentosCliente :: botonDetalle"/>
 
-        <br>
-            <p>Información más detallada sobre los clientes</p> 
-            <a class="btn btn-primary" th:href="@{/detalle/listado}" role="button">Ver información</a>                 
-            <br>
+       
                 <footer th:replace="layout/plantilla :: footer"/>
                 </body>
                 </html>
